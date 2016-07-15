@@ -1,10 +1,23 @@
 package com.hulk.springboot.service;
 
-import org.springframework.stereotype.Service;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-@Service(value = "springBootService")
+import com.hulk.springboot.util.LogUtils;
+
+@Component
 public class SpringBootService {
-	public void serviceOne() {
-		System.out.println("service one");
+	private static Logger logger = LogUtils.getLogger(SpringBootService.class);
+	@Value(value = "${name}")
+	private String MyName;
+
+	public void printName() {
+		logger.info(MyName);
+		System.out.println(MyName);
+	}
+
+	public void withAopService() {
+		System.out.println("AopService Method");
 	}
 }
