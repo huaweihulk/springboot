@@ -1,7 +1,10 @@
 package com.hulk.springboot.util;
 
+import org.springframework.util.DigestUtils;
+
 public class MD5Utils {
-	public static String decodeMd5(String md5String) {
-		return null;
+
+	public static final String EncodeMd5Hex(String md5Code) {
+		return DigestUtils.md5DigestAsHex(md5Code.getBytes());
 	}
 }
